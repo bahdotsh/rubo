@@ -22,4 +22,16 @@ class PagesController extends Controller
       return view('pages.blog');
     }
 
+    public function usersettings(){
+      return view('pages.usersettings');
+    }
+
+    public function userchats(){
+      return view('pages.userchats');
+    }
+
+    public function userdashboard(){
+      return view('pages.userdashboard');
+    }
+
 }

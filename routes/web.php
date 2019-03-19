@@ -14,6 +14,9 @@
 Route::get('/', 'PagesController@index');
 Route::get('/employer','PagesController@employer');
 Route::get('/contact','PagesController@contact');
+Route::get('/dashboard','PagesController@userdashboard');
+Route::get('/settings','PagesController@usersettings');
+Route::get('/chats','PagesController@userchats');
 
 Auth::routes();
 

@@ -16,7 +16,7 @@
 <body>
     <div id="app">
 
-        @include('inc.navbar')
+        @include(Auth::check() ? 'inc.usernavbar' : 'inc.navbar')
         @yield('content')
     </div>
 
