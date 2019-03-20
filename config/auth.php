@@ -45,6 +45,24 @@ return [
             'driver' => 'token',
             'provider' => 'users',
         ],
+
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+      ],
+        'admin-api' => [
+            'driver' => 'token',
+            'provider' => 'admins',
+      ],
+
+        'coach' => [
+            'driver' => 'session',
+            'provider' => 'coaches',
+      ],
+        'coach-api' => [
+            'driver' => 'token',
+            'provider' => 'coaches',
+      ],
     ],
 
     /*
@@ -68,6 +86,16 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
+        ],
+
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Admins::class,
+        ],
+
+        'coaches' => [
+            'driver' => 'eloquent',
+            'model' => App\Coaches::class,
         ],
 
         // 'users' => [
