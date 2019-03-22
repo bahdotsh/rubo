@@ -1,12 +1,15 @@
 <?php
-namespace App;
+
 namespace App\Http\Controllers\Auth;
+
 use Auth;
 use App\Coaches;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
+use Illuminate\Auth\Events\Registered;
+
 
 class CoachRegisterController extends Controller
 {
@@ -37,29 +40,7 @@ class CoachRegisterController extends Controller
      */
     public function __construct()
     {
-      $this->middleware('guest:coach', ['except' => ['logout']]);
-    }
-
-    public function showRegisterForm()
-    {
-      return view('auth.coachregister');
-    }
-
-      public function register(Request $request)
-      {
-      // Validate the form data
-        $this->validate($request, [
-          'email'   => 'required|email',
-          'password' => 'required|min:6'
-      ]);
-
-      // Attempt to log the user in
-      if (Auth::guard('coach')->attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
-        // if successful, then redirect to their intended location
-        return redirect()->intended(route('coach.dashboard'));
-      }
-      // if unsuccessful, then redirect back to the login with the form data
-      return redirect()->back()->withInput($request->only('email', 'remember'));
+        $this->middleware('guest:coach', ['except' => ['logout']]);
     }
 
     /**
@@ -68,27 +49,68 @@ class CoachRegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'firstname' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
-        ]);
 
-      }
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\User
-     */
-   protected function create(array $data)
-    {
-        return Coaches::create([
-            'firstname' => $data['firstname'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
-    }
+     public function showCoachRegistrationForm()
+     {
+
+         return view('auth.coachregister');
+     }
+
+     // public function register(Request $request)
+     // {
+     //     $this->validator($request->all())->validate();
+     //
+     //     event(new Registered($coach = $this->create($request->all())));
+     //
+     //     $this->guard()->login($coach);
+     //
+     //     return $this->registered($request, $coach)
+     //                     ?: redirect($this->redirectPath());
+     // }
+
+     public function register(Request $request)
+     {
+         $this->validate(request(), [
+             'firstname' => 'required',
+             'email' => 'required|email',
+             'password' => 'required'
+         ]);
+
+         $coach = Coaches::create(request(['firstname', 'email', 'password']));
+
+         // auth()->login($coach);
+
+         if (Auth::guard('coach')->attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
+           // if successful, then redirect to their intended location
+           return redirect()->intended(route('coach.dashboard'));
+         }
+            // if unsuccessful, then redirect back to the login with the form data
+          return redirect()->back()->withInput($request->only('email', 'remember'));
+}
+
+
+
+    // protected function validator(array $data)
+    // {
+    //     return Validator::make($data, [
+    //         'name' => 'required|string|max:255',
+    //         'email' => 'required|string|email|max:255|unique:users',
+    //         'password' => 'required|string|min:6|confirmed',
+    //     ]);
+    // }
+    //
+    // /**
+    //  * Create a new user instance after a valid registration.
+    //  *
+    //  * @param  array  $data
+    //  * @return \App\User
+    //  */
+    // protected function create(array $data)
+    // {
+    //     return Coaches::create([
+    //         'firstname' => $data['firstname'],
+    //         'email' => $data['email'],
+    //         'password' => bcrypt($data['password']),
+    //     ]);
+    // }
 }

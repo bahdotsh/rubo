@@ -34,5 +34,10 @@ Route::get('/home', 'PagesController@userdashboard')->name('home');
  Route::get('/coach/logout/', 'Auth\CoachLoginController@logout')->name('coach.logout');
  Route::get('coach/', 'CoachController@index')->name('coach.dashboard');
 
-Route::get('/coach/register','Auth\CoachRegisterController@showRegisterForm')->name('coach.register');
+// Route::get('/coach/regster','Auth\CoachRegisterController@showCoachRegistrationForm')->name('coach.register');
+Route::get('/coach/register', function()
+{
+    return view('auth/coachregister');
+});
+
 Route::post('/coach/register', 'Auth\CoachRegisterController@register')->name('coach.register.submit');
