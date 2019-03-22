@@ -1,11 +1,8 @@
 <?php
 namespace App;
-
 namespace App\Http\Controllers\Auth;
-
 use Auth;
-
-//use App\Coaches;
+use App\Coaches;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -86,7 +83,7 @@ class CoachRegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-   function create(array $data)
+   protected function create(array $data)
     {
         return Coaches::create([
             'firstname' => $data['firstname'],
