@@ -44,9 +44,10 @@ class CoachLoginController extends Controller
         ]);
     }
 
-    return redirect()->to('/home');
+    return redirect()->to(route('coach.dashboard'));
+
 }
-      // Attempt to log the user in
+          // Attempt to log the user in
     //   if (Auth::guard('coach')->attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
     //     // if successful, then redirect to their intended location
     //     return redirect()->intended(route('coach.dashboard'));
