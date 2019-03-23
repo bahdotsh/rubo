@@ -29,7 +29,11 @@ Route::get('/home', 'PagesController@userdashboard')->name('home');
  Route::get('admin/', 'AdminController@index')->name('admin.dashboard');
 
 
- Route::get('/coach/login','Auth\CoachLoginController@showLoginForm')->name('coach.login');
+ // Route::get('/coach/login','Auth\CoachLoginController@showLoginForm')->name('coach.login');
+ Route::get('/coach/login', function()
+ {
+     return view('auth/coachlogin');
+ });
  Route::post('/coach/login', 'Auth\CoachLoginController@login')->name('coach.login.submit');
  Route::get('/coach/logout/', 'Auth\CoachLoginController@logout')->name('coach.logout');
  Route::get('coach/', 'CoachController@index')->name('coach.dashboard');
