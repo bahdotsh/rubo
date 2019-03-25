@@ -32,7 +32,7 @@ Route::get('/home', 'PagesController@userdashboard')->name('home');
  // Route::get('/coach/login','Auth\CoachLoginController@showLoginForm')->name('coach.login');
  Route::get('/coach/login', function()
  {
-     return view('auth/coachlogin');
+     return view('auth.coachlogin');
  });
  Route::post('/coach/login', 'Auth\CoachLoginController@login')->name('coach.login.submit');
  Route::get('/coach/logout/', 'Auth\CoachLoginController@logout')->name('coach.logout');
@@ -41,7 +41,7 @@ Route::get('/home', 'PagesController@userdashboard')->name('home');
 // Route::get('/coach/regster','Auth\CoachRegisterController@showCoachRegistrationForm')->name('coach.register');
 Route::get('/coach/register', function()
 {
-    return view('auth/coachregister');
+    return view('auth.coachregister');
 });
 
 Route::post('/coach/register', 'Auth\CoachRegisterController@register')->name('coach.register.submit');

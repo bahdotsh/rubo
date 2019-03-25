@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Redirect;
 use Auth;
 use Route;
 
@@ -15,10 +16,10 @@ class CoachLoginController extends Controller
       $this->middleware('guest:coach', ['except' => ['logout']]);
     }
 
-    public function showLoginForm()
-    {
-      return view('auth.coachlogin');
-    }
+    // public function showLoginForm()
+    // {
+    //   return view('auth.coachlogin');
+    // }
 
 //     public function login(Request $request)
 //     {
@@ -38,13 +39,10 @@ class CoachLoginController extends Controller
 
   public function login()
   {
-    if (auth()->attempt(request(['email', 'password'])) == false) {
-        return back()->withErrors([
-            'message' => 'The email or password is incorrect, please try again'
-        ]);
+    if (auth()->attempt(request(['email', 'password'])) == true) {
+        return redirect()->back()->withInput((request()->only('email', 'remember')));
     }
-
-    return redirect()->to(route('coach.dashboard'));
+    return view('pages.coach.dashboard');
 
 }
           // Attempt to log the user in
