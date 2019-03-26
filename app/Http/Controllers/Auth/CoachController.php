@@ -20,6 +20,7 @@ class CoachController extends Controller
      */
     public function index()
     {
+
         return view('pages.coach.dashboard');
     }
 }

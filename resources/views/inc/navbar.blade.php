@@ -24,9 +24,9 @@
 
             <ul class="navbar-nav navbar-right nav">
               <li><a href="/">Home</a></li>
-              <li><a href="/employer">Employer</a></li>
+              {{-- <li><a href="/employer">Employer</a></li>
               <li><a href="/posts">Blog</a></li>
-              <li><a href="/contact">Contact</a></li>
+              <li><a href="/contact">Contact</a></li> --}}
 
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">

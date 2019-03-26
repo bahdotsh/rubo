@@ -82,7 +82,7 @@ class CoachRegisterController extends Controller
 
          auth()->guard('coach')->login($coach);
                     // if successful, then redirect to their intended location
-           return redirect()->intended(route('pages.coach.dashboard'));
+           return redirect()->intended(route('coach.dashboard'));
          }
 
 
