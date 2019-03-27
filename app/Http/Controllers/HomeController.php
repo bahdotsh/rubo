@@ -25,4 +25,14 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function admin()
+    {
+        return view('pages.admin.dashboard');
+    }
+
+    public function coach()
+    {
+        return view('pages.coach.dashboard');
+    }
 }

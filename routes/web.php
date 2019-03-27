@@ -22,26 +22,34 @@ Auth::routes();
 
 Route::get('/home', 'PagesController@userdashboard')->name('home');
 
-
- Route::get('/admin/login','Auth\AdminLoginController@showLoginForm')->name('admin.login');
- Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
- Route::get('/admin/logout/', 'Auth\AdminLoginController@logout')->name('admin.logout');
- Route::get('admin/', 'AdminController@index')->name('admin.dashboard');
+Route::get('admin/routes', 'HomeController@admin')->middleware('admin');
+Route::get('coach/routes', 'HomeController@coach')->middleware('coach');
 
 
-  Route::get('/coach/login','Auth\CoachLoginController@showLoginForm')->name('coach.login');
- // Route::get('/coach/login', function()
- // {
- //     return view('auth.coachlogin');
- // });
- Route::post('/coach/login', 'Auth\CoachLoginController@login')->name('coach.login.submit');
- Route::get('/coach/logout/', 'Auth\CoachLoginController@logout')->name('coach.logout');
- Route::get('coach/', 'CoachController@index')->name('coach.dashboard');
 
-// Route::get('/coach/regster','Auth\CoachRegisterController@showCoachRegistrationForm')->name('coach.register');
-Route::get('/coach/register', function()
-{
-    return view('auth.coachregister');
-});
 
-Route::post('/coach/register', 'Auth\CoachRegisterController@register')->name('coach.register.submit');
+
+
+//  Route::get('/admin/login','Auth\AdminLoginController@showLoginForm')->name('admin.login');
+//  Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
+//  Route::get('/admin/logout/', 'Auth\AdminLoginController@logout')->name('admin.logout');
+//  Route::get('admin/', 'AdminController@index')->name('admin.dashboard');
+//
+//
+//   Route::get('/coach/login','Auth\CoachLoginController@showLoginForm')->name('coach.login');
+//  // Route::get('/coach/login', function()
+//  // {
+//  //     return view('auth.coachlogin');
+//  // });
+//  Route::post('/coach/login', 'Auth\CoachLoginController@login')->name('coach.login.submit');
+//  Route::get('/coach/logout/', 'Auth\CoachLoginController@logout')->name('coach.logout');
+//  Route::get('coach/', 'CoachController@index')->name('coach.dashboard');
+//
+// // Route::get('/coach/regster','Auth\CoachRegisterController@showCoachRegistrationForm')->name('coach.register');
+// Route::get('/coach/register', function()
+// {
+//
+//     return view('auth.coachregister');
+// });
+//
+// Route::post('/coach/register', 'Auth\CoachRegisterController@register')->name('coach.register.submit');

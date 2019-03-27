@@ -62,7 +62,7 @@
                         </div>
 
                         <div class="form-group">
-                          <a href = "/coach/register"> Sign Up </a> as an Expert 
+                          <a href = "/coach/register"> Sign Up</a> as an Expert 
 
                         </div>
 
