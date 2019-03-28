@@ -31,7 +31,15 @@ class PagesController extends Controller
     }
 
     public function userdashboard(){
-      return view('pages.user.userdashboard');
+        return view('pages.user.userdashboard');
+    }
+
+    public function admin(){
+      return view('pages.admin.dashboard');
+    }
+
+    public function adminsettings(){
+      return view('pages.admin.settings');
     }
 
 }

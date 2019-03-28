@@ -13,10 +13,9 @@
             <!-- Branding Image -->
 
 
-            <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'Betterly') }}
-            </a>
-
+              <a class="navbar-brand" href=""{{url('/admin/dashboard')}}"">
+                  {{ config('app.name', 'Betterly') }} dskjdfkjh
+              </a>
         </div>
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
@@ -25,10 +24,10 @@
             </ul>
 
           <ul class="navbar-nav navbar-right nav">
+              <li><a href="/admin/dashboard">Dash</a></li>
+              <li><a href="/admin/settings">Settings</a></li>
+              <li><a href="/admin/chats">Chats</a></li>
 
-              <li><a href="/user/dashboard">Dashboard</a></li>
-              <li><a href="/user/settings">Settings</a></li>
-              <li><a href="/user/chats">Chats</a></li>
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
@@ -37,7 +36,7 @@
             <!--        <li><a href="{{ route('register') }}">Register</a></li>  -->
                 @else
                     <li class="dropdown">
-                        <a href="/dashboard" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                        <a href="/admin/dashboard" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
 

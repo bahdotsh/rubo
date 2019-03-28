@@ -14,16 +14,17 @@
 Route::get('/', 'PagesController@index');
 Route::get('/employer','PagesController@employer');
 Route::get('/contact','PagesController@contact');
-Route::get('/dashboard','PagesController@userdashboard');
-Route::get('/settings','PagesController@usersettings');
-Route::get('/chats','PagesController@userchats');
+Route::get('/user/dashboard','PagesController@userdashboard');
+Route::get('/user/settings','PagesController@usersettings');
+Route::get('/user/chats','PagesController@userchats');
 
 Auth::routes();
 
 Route::get('/home', 'PagesController@userdashboard')->name('home');
 
-Route::get('admin/routes', 'HomeController@admin')->middleware('admin');
-Route::get('coach/routes', 'HomeController@coach')->middleware('coach');
+Route::get('/admin/dashboard', 'PagesController@admin')->middleware('admin');
+Route::get('/admin/settings', 'PagesController@adminsettings')->middleware('admin');
+// Route::get('/coach/routes', 'HomeController@coach')->middleware('coach');
 
 
 

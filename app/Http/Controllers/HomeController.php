@@ -23,16 +23,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('home ');
     }
 
-    public function admin()
-    {
-        return view('pages.admin.dashboard');
-    }
-
-    public function coach()
-    {
-        return view('pages.coach.dashboard');
-    }
+    // public function admin()
+    // {
+    //
+    //     return view('pages.admin.dashboard');
+    // }
+    //
+    // public function coach()
+    // {
+    //     return view('pages.coach.dashboard');
+    // }
 }
