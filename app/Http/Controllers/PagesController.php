@@ -50,4 +50,8 @@ class PagesController extends Controller
       return view('pages.coach.chats');
     }
 
+    public function coachsettings(){
+      return view('pages.coach.settings');
+    }
+
 }

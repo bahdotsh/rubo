@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class Admin
+class Coach
 {
     /**
      * Handle an incoming request.
@@ -21,7 +21,7 @@ class Admin
          return $next($request);
 
        }
-     return redirect('home')->with('error','You have not coach access');
+     return redirect('home')->with('error','You does not have coach access');
 
      }
 

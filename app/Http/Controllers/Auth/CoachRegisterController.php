@@ -85,7 +85,9 @@ class CoachRegisterController extends Controller
 
                     event(new Registered($user = $this->create($request->all())));
 
-                    return redirect()->route('pages.coach.dashboard')
+                    auth()->login($user);
+
+                    return redirect()->route('home')
                         ->with(['success' => 'Congratulations! your account is registered, you will shortly receive an email to activate your account.']);
                 }
 

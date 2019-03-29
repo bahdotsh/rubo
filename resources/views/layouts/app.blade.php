@@ -19,7 +19,7 @@
 
         {{-- @include(Auth::check() ? 'inc.usernavbar' : 'inc.navbar') --}}
 
-        @include(Auth::check() ? (Auth::user()->user_type == 1 ? 'inc.adminnavbar' : 'inc.usernavbar') : 'inc.navbar')
+        @include(Auth::check() ? (Auth::user()->user_type == 1 ? 'inc.adminnavbar' : 'inc.coachnavbar') : 'inc.navbar')
         @yield('content')
     </div>
 

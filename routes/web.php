@@ -25,6 +25,7 @@ Route::get('/home', 'PagesController@userdashboard')->name('home');
 Route::get('/admin/dashboard', 'PagesController@admin')->middleware('admin');
 Route::get('/admin/settings', 'PagesController@adminsettings')->middleware('admin');
 Route::get('/coach/dashboard', 'PagesController@coach')->middleware('coach');
+Route::get('/coach/settings', 'PagesController@coachsettings')->middleware('coach');
 Route::get('/coach/chats', 'PagesController@coachchats')->middleware('coach');
 
 // Route::get('/coach/regster','Auth\CoachRegisterController@showCoachRegistrationForm')->name('coach.register');
