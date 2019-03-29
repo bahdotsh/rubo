@@ -87,7 +87,7 @@ class CoachRegisterController extends Controller
 
                     auth()->login($user);
 
-                    return redirect()->route('home')
+                    return redirect()->route('coachhome')
                         ->with(['success' => 'Congratulations! your account is registered, you will shortly receive an email to activate your account.']);
                 }
 
