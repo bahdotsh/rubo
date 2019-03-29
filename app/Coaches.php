@@ -13,7 +13,7 @@ class Coaches extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'firstname', 'email', 'password', 'accesscode'
+        'name', 'email', 'password', 'accesscode'
     ];
 
     /**

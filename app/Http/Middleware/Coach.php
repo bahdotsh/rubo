@@ -16,12 +16,12 @@ class Admin
      public function handle($request, Closure $next)
      {
 
-       if(auth()->user()->type == 2){
+       if(auth()->user()->user_type == 2){
 
          return $next($request);
 
        }
-     return redirect(‘home’)->with(‘error’,’You have not coach access’);
+     return redirect('home')->with('error','You have not coach access');
 
      }
 

@@ -42,4 +42,12 @@ class PagesController extends Controller
       return view('pages.admin.settings');
     }
 
+    public function coach(){
+      return view('pages.coach.dashboard');
+    }
+
+    public function coachchats(){
+      return view('pages.coach.chats');
+    }
+
 }
