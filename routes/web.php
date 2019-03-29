@@ -27,6 +27,10 @@ Route::get('/admin/settings', 'PagesController@adminsettings')->middleware('admi
 Route::get('/coach/dashboard', 'PagesController@coach')->middleware('coach');
 Route::get('/coach/settings', 'PagesController@coachsettings')->middleware('coach');
 Route::get('/coach/chats', 'PagesController@coachchats')->middleware('coach');
+Route::get('/mastercoach/dashboard', 'PagesController@coach')->middleware('mastercoach');
+Route::get('/mastercoach/settings', 'PagesController@coachsettings')->middleware('mastercoach');
+Route::get('/mastercoach/chats', 'PagesController@coachchats')->middleware('mastercoach');
+
 
 Route::get('/coach/dashboard', 'PagesController@coach')->middleware('coach')->name('coachhome');
 

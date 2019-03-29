@@ -19,8 +19,26 @@
 
         {{-- @include(Auth::check() ? 'inc.usernavbar' : 'inc.navbar') --}}
 
-        @include(Auth::check() ? (Auth::user()->user_type == 1 ? 'inc.adminnavbar' : 'inc.coachnavbar') : 'inc.navbar')
-        @yield('content')
+
+        @if(Auth::check())
+
+          @if(Auth::user()->user_type == 1)
+            @include('inc.adminnavbar')
+
+          @elseif (Auth::user()->user_type == 2)
+            @include('inc.coachnavbar')
+
+          @elseif (Auth::user()->user_type == 3)
+            @include('inc.mastercoachnavbar')
+
+        @elseif (Auth::user()->user_type == 4)
+          @include('inc.coachnavbar')
+        @endif
+      @else
+         @include('inc.navbar')
+      @endif
+
+      @yield('content')
     </div>
 
 
